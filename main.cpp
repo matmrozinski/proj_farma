@@ -21,7 +21,7 @@ int main(int argc, char const **argv)
 	
 	
 	cout<<"Podaj Liczbe kur"<<endl;
-	cin>> farma.liczba_kur;
+	cin>> farma -> liczba_kur;
 	cout<<"Podaj, ile pieniedzy chcesz zarobic"<<endl;
 	cin>> goal_money;
 
@@ -32,28 +32,28 @@ int main(int argc, char const **argv)
 
 	for(int i=0; i<turn_limit; i++)
 	{
-		if(farmer.money >= goal_money)
+		if(farmer -> money >= goal_money)
 		{
 		cout<<"gratulacje, wygrales";
 		return 0;
 		}
-		for(int j=0; j<farma.liczba_kur; j++)	//kury znosza jajka z ktorych moga sie wykluc inne kury 
+		for(int j=0; j<farma -> liczba_kur; j++)	//kury znosza jajka z ktorych moga sie wykluc inne kury 
 		{
 			int p= 1 + rand() % 100;
 			if(p<21)
-			farma.liczba_jajek++;
+			farma -> liczba_jajek++;
 			else if (p>20 && p<25)
-			farma.liczba_kur++;
+			farma -> liczba_kur++;
 		}
-		if(farma.liczba_jajek>=50)	//sprzedaz jajek i kupno krowy	
+		if(farma -> liczba_jajek>=50)	//sprzedaz jajek i kupno krowy	
 		{
-		farma.liczba_jajek-=50;
-		farma.liczba_krow++;
+		farma -> liczba_jajek-=50;
+		farma -> liczba_krow++;
 		}
 
-		for(int y=0; y<farma.liczba_krow; y++)	//krowy dają mleko za ktore farmer otrzymuje pieniadze
+		for(int y=0; y<farma -> liczba_krow; y++)	//krowy dają mleko za ktore farmer otrzymuje pieniadze
 		{
-		farmer.money+=10;
+		farmer -> money+=10;
 		}
 		usleep(1000000);
 	}
